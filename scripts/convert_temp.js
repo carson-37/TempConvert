@@ -21,13 +21,37 @@ function domLoaded() {
 function convertCtoF(C) {
    // TODO: Return temp in °F. 
    // °F = °C * 9/5 + 32
+   let F = C * 9 / 5 + 32;
+	return F;
 }
 
 function convertFtoC(F) {
    // TODO: Return temp in °C. 
    // °C = (°F - 32) * 5/9
+   let C = (F - 32) * 5 / 9;
+	return C
 }
-
+function updateImage(F){
+   
+   if(F < -200){
+      return "dead";
+   }
+   if(F <= 32){
+      return "cold";
+   }
+   if(F < 90){
+      return "cool";
+   }
+   if(F < 200){
+      return "hot";
+   }
+   if(F > 199){
+      return "dead";
+   }
+   else{
+      return "C-F";
+   }
+}
 // TODO: write a fn that can be called with every temp conversion
 // to display the correct weather icon.
 // Based on degrees Fahrenheit:
