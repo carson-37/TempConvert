@@ -7,8 +7,8 @@ function domLoaded() {
 	const submit = document.getElementById("convertButton");
    // TODO: Use addEventListener() to register a click event handler for the convert button.
    // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#add_a_simple_listener
-	ftable.addEventListener("click", clearC);
-	ctable.addEventListener("click", clearF);
+	ftable.addEventListener("input", clearC);
+	ctable.addEventListener("input", clearF);
 	
 	submit.addEventListener("click", update);
 	
