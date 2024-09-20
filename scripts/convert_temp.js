@@ -53,19 +53,24 @@ function convertFtoC(F) {
 function update(){
 	const ftable = document.getElementById("F_in");
 	const ctable = document.getElementById("C_in");
+	const message = document.getElementById("message");
+	message.innerHTML = "";
 	if(ctable.value == ""){
 		if(ftable.value == ""){
-			const message = document.getElementById("message");
-			message.value = "Please enter temperature to be converted";
+			
+			message.innerHTML = "Please enter temperature to be converted";
+			updateImage(ftable.value);
 		}
 		else{
 			ctable.value = convertFtoC(ftable.value);
+			updateImage(ftable.value);
 		}
 	}
 	else{
 		ftable.value = convertCtoF(ctable.value);
+		updateImage(ftable.value);
 	}
-	updateImage(ftable.value);
+	
 }
 function updateImage(F){
 	const icon = document.getElementById("weatherIcon")
