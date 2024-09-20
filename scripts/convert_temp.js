@@ -27,9 +27,11 @@ function domLoaded() {
 }
 // TODO: (Part of the above is to write the functions to be executed when the event handlers are invoked.)
 function clearC(){
+	const ctable = document.getElementById("C_in"); 
 	ctable.value = "";
 }
 function clearF(){
+	const ftable = document.getElementById("F_in");
 	ftable.value = "";
 }
 function convertCtoF(ftable, ctable) {
