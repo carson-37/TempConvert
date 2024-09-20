@@ -74,7 +74,7 @@ function update(){
 }
 function updateImage(F){
 	const icon = document.getElementById("weatherIcon")
-   	if(F = ""){
+   	if(F == ""){
 	   icon.src = "images/C-F.png";
    	}
 		
