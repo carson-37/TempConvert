@@ -34,21 +34,21 @@ function clearF(){
 	const ftable = document.getElementById("F_in");
 	ftable.value = "";
 }
-function convertCtoF(ftable, ctable) {
+function convertCtoF(C) {
    // TODO: Return temp in °F. 
    // °F = °C * 9/5 + 32
-	
-  	ftable.value = ctable.value * 9 / 5 + 32;
-	return;
+	let F = 0;
+  	F = C * 9 / 5 + 32;
+	return F;
 }
 
-function convertFtoC(ftable, ctable) {
+function convertFtoC(F) {
 	
    // TODO: Return temp in °C. 
    // °C = (°F - 32) * 5/9
-	
-   	ctable.value = (ftable.value - 32) * 5 / 9;
-	return;
+	let C = 0;
+   	C = (F - 32) * 5 / 9;
+	return C;
 }
 function update(){
 	const ftable = document.getElementById("F_in");
@@ -59,17 +59,17 @@ function update(){
 			message.value = "Please enter temperature to be converted";
 		}
 		else{
-			convertFtoC(ftable, ctable);
+			ctable.value = convertFtoC(ftable.value);
 		}
 	}
 	else{
-		convertCtoF(ftable, ctable);
+		ftable.value = convertCtoF(ctable.value);
 	}
-	updateImage(ftable);
+	updateImage(ftable.value);
 }
-function updateImage(ftable){
+function updateImage(F){
 	const icon = document.getElementById("weatherIcon")
-   	if(ftable.value = ""){
+   	if(F = ""){
 	   icon.src = "images/C-F.png";
    	}
    	else if(F < -200){
