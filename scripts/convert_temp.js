@@ -73,15 +73,16 @@ function update(){
 	
 }
 function updateImage(F){
-	alert(f)
 	const icon = document.getElementById("weatherIcon")
    	if(F = ""){
 	   icon.src = "images/C-F.png";
    	}
+		
    	else if(F < -200){
    	   icon.src = "images/dead.png";
    	}
    	else if(F <= 32 && F >= -200){
+		alert(F + " is less than 32")
    	   icon.src = "images/cold.png";
    	}
    	else if(F < 90 && F > 32){
