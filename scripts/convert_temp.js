@@ -58,7 +58,7 @@ function update(){
 	if(ctable.value == ""){
 		if(ftable.value == ""){
 			
-			message.innerHTML = "Please enter temperature to be converted";
+			message.innerHTML = "Please enter a temperature to be converted";
 			updateImage(ftable.value);
 		}
 		else{
@@ -73,6 +73,7 @@ function update(){
 	
 }
 function updateImage(F){
+	alert(f)
 	const icon = document.getElementById("weatherIcon")
    	if(F = ""){
 	   icon.src = "images/C-F.png";
