@@ -2,9 +2,18 @@ window.addEventListener("DOMContentLoaded", domLoaded);
 
 // When the DOM has finished loading, add the event listeners.
 function domLoaded() {
+	const ftable = document.getElementById("F_in");
+	const ctable = document.getElementById("C_in");
+	const submit = document.getElementById("convertButton");
    // TODO: Use addEventListener() to register a click event handler for the convert button.
    // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#add_a_simple_listener
-
+	ftable.addEventListener("click", clearC);
+	ctable.addEventListener("click", clearF);
+	
+	submit.addEventListener("click", update);
+	
+	
+	
    // Add event listeners to handle clearing the box that WAS NOT clicked,
    // e.g., the element C_in listens for 'input', with a callback fn to
    // execute after that event does happen. 
@@ -17,40 +26,65 @@ function domLoaded() {
 
 }
 // TODO: (Part of the above is to write the functions to be executed when the event handlers are invoked.)
-
-function convertCtoF(C) {
+function clearC(){
+	ctable.value = "";
+}
+function clearF(){
+	ftable.value = "";
+}
+function convertCtoF(ftable, ctable) {
    // TODO: Return temp in °F. 
    // °F = °C * 9/5 + 32
-   let F = C * 9 / 5 + 32;
-	return F;
+	
+  	ftable.value = ctable.value * 9 / 5 + 32;
+	return;
 }
 
-function convertFtoC(F) {
+function convertFtoC(ftable, ctable) {
+	
    // TODO: Return temp in °C. 
    // °C = (°F - 32) * 5/9
-   let C = (F - 32) * 5 / 9;
-	return C
+	
+   	ctable.value = (ftable.value - 32) * 5 / 9;
+	return;
 }
-function updateImage(F){
-   
-   if(F < -200){
-      return "dead";
-   }
-   if(F <= 32){
-      return "cold";
-   }
-   if(F < 90){
-      return "cool";
-   }
-   if(F < 200){
-      return "hot";
-   }
-   if(F > 199){
-      return "dead";
-   }
-   else{
-      return "C-F";
-   }
+function update(){
+	const ftable = document.getElementById("F_in");
+	const ctable = document.getElementById("C_in");
+	if(ctable.value == ""){
+		if(ftable.value == ""){
+			const message = document.getElementById("message");
+			message.value = "Please enter temperature to be converted";
+		}
+		else{
+			convertFtoC(ftable, ctable);
+		}
+	}
+	else{
+		convertCtoF(ftable, ctable);
+	}
+	updateImage(ftable);
+}
+function updateImage(ftable){
+	const icon = document.getElementById("weatherIcon")
+   	if(ftable.value = ""){
+	   icon.src = "images/C-F.png";
+   	}
+   	else if(F < -200){
+   	   icon.src = "images/dead.png";
+   	}
+   	else if(F <= 32){
+   	   icon.src = "images/cold.png";
+   	}
+   	else if(F < 90){
+		icon.src = "images/cool.png";
+   	}
+   	else if(F < 200){
+  	    icon.src = "images/hot.png";
+   	}
+   	else{
+   	   icon.src = "images/dead.png";
+   	}
 }
 // TODO: write a fn that can be called with every temp conversion
 // to display the correct weather icon.
