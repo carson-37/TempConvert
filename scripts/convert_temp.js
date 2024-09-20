@@ -75,16 +75,16 @@ function updateImage(F){
    	else if(F < -200){
    	   icon.src = "images/dead.png";
    	}
-   	else if(F <= 32){
+   	else if(F <= 32 && F >= -200){
    	   icon.src = "images/cold.png";
    	}
-   	else if(F < 90){
+   	else if(F < 90 && F > 32){
 		icon.src = "images/cool.png";
    	}
-   	else if(F < 200){
+   	else if(F < 200 && F >= 90){
   	    icon.src = "images/hot.png";
    	}
-   	else{
+   	else if(F >= 200){
    	   icon.src = "images/dead.png";
    	}
 }
